@@ -1,11 +1,11 @@
-package com.ciq.ems.dao;
+package com.ciq.ems.service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.ciq.ems.pojo.Employee;
 
-public interface EmployeeDao {
+public interface EmployeeService {
 	
 	void save(Employee employee);
 	
@@ -13,7 +13,8 @@ public interface EmployeeDao {
 
 	void  update(Employee employee);
 
-	void delete(Integer id);
+	void delete(int id);
 
-	 Employee getById(Integer id);
+	 Employee  getById(int id);
+
 }

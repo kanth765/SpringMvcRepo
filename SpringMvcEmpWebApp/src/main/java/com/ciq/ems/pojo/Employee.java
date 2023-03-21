@@ -1,27 +1,38 @@
 package com.ciq.ems.pojo;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 public class Employee {
 
-	private int id;
+//	@NotEmpty
+//	@NotNull
+
+	private Integer id;
+//	@NotEmpty(message = "Movie name cannot be empty.")
+	@Size(min = 2, max = 30)
+	@Pattern(regexp = "[^0-9]*")
 	private String name;
-	private double salary;
+	private Double salary;
 
 	public Employee() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Employee(int id, String name, double salary) {
+	public Employee(Integer id, String name, Double salary) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.salary = salary;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -33,11 +44,11 @@ public class Employee {
 		this.name = name;
 	}
 
-	public double getSalary() {
+	public Double getSalary() {
 		return salary;
 	}
 
-	public void setSalary(double salary) {
+	public void setSalary(Double salary) {
 		this.salary = salary;
 	}
 

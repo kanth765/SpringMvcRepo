@@ -27,6 +27,14 @@
 				<td><input type="text" name="salary"></td>
 			</tr>
 			<tr>
+				<td>bonous:</td>
+				<td><input type="text" name="bonous"></td>
+			</tr>
+			<tr>
+				<td>JoiningDate:</td>
+				<td><input type="text" name="joiningDate"></td>
+			</tr>
+			<tr>
 				<td><input type="submit" value="save"></td>
 			</tr>
 

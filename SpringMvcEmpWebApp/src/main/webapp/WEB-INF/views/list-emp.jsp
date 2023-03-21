@@ -56,8 +56,8 @@
 				<td>${employee.id}</td>
 				<td>${employee.name}</td>
 				<td>${employee.salary}</td>
-				<td><a href="delete?id=${employee.id}">delete</a> <a
-					href="update?id=${employee.id}">update</a></td>
+				<td><a href="deleteEmp?id=${employee.id}">delete</a> <a
+					href="updateEmp?id=${employee.id}">update</a></td>
 			</tr>
 
 		</c:forEach>
