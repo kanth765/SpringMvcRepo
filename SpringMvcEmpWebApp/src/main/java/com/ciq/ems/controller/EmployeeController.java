@@ -15,11 +15,14 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -53,11 +56,11 @@ public class EmployeeController {
 //		} else if (exceptionOccured.equalsIgnoreCase("IO_Exception")) {
 //			throw new IOException("Io excepiton");
 //		}
-		
-		String error="error";
-		if(error.equalsIgnoreCase("Error")) {
-			throw new NullPointerException();
-		}
+
+//		String error="error";
+//		if(error.equalsIgnoreCase("Error")) {
+//			throw new NullPointerException();
+//		}
 		return new ModelAndView("list-emp", "emps", employeeServiceImpl.getallEmployees());
 	}
 
@@ -78,15 +81,15 @@ public class EmployeeController {
 	}
 
 	@GetMapping("/updateEmp")
-	public String update(@RequestParam("id") int id, @ModelAttribute("employee") Employee employee) {
+	public ModelAndView update(@RequestParam("id") int id, Employee employee) {
 		employee = employeeServiceImpl.getById(id);
-//		, Model model
-//		model.addAttribute("employee", employee);
-		return "update-emp";
+		ModelAndView modelAndView = new ModelAndView("emp-update");
+		modelAndView.addObject(employee);
+		return modelAndView;
 	}
 
 	@PostMapping("/update")
-	public String update(Employee employee) {
+	public String update(@ModelAttribute("employee") Employee employee) {
 		employeeServiceImpl.update(employee);
 		return "redirect:/listEmps";
 	}
@@ -108,10 +111,12 @@ public class EmployeeController {
 //		System.out.println("Io exception occured: " + exception);
 //		return "IoException";
 //	}
-	
+
 //	@ExceptionHandler(value = Exception.class)
 //	public String handleIOException(Exception exception) {
 //		System.out.println(" exception occured: " + exception);
 //		return "exception-error";
 //	}
+
+	
 }
