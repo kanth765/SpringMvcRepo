@@ -13,7 +13,7 @@ public class EmployeeClient {
 
 	public static void main(String[] args) {
 
-		Employee employee = new Employee("anil", 23000.00);
+//		Employee employee = new Employee("anil", 23000.00);
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 //		EmployeeDaoImpl bean = (EmployeeDaoImpl) context.getBean("employeeDaoImpl");
 //		System.out.println(bean);
